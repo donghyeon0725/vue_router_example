@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router';
+
 import Login from './views/Login'
 import Main from './views/Main'
 import MainOne from './views/MainOne'
 import MainTwo from './views/MainTwo'
+import Home from './views/Home'
+import NotFound from './views/NotFound'
 
 Vue.config.productionTip = false
 
@@ -13,6 +16,10 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   mode: 'history',
   routes: [
+    {
+      path: '/',
+      component: Home,
+    },
     {
       path: '/login',
       component: Login,
@@ -26,7 +33,10 @@ const router = new VueRouter({
         { path: "one", component: MainOne },
         { path: "two", component: MainTwo },
       ],
-
+    },
+    {
+      path: '*',
+      component: NotFound,
     },
   ],
 });
